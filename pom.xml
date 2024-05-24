@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mybatis_generator2024</module>
+        <module>provider-payment-9001</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
