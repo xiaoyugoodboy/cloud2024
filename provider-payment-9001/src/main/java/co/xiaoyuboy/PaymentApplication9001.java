@@ -1,5 +1,6 @@
 package co.xiaoyuboy;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
@@ -10,6 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Description:
  */
 @SpringBootApplication
+@EnableKnife4j
 @MapperScan("co.xiaoyuboy.mapper")
 public class PaymentApplication9001 {
     public static void main(String[] args) {
