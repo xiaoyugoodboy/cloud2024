@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -61,6 +62,11 @@ public class PayController
         BeanUtils.copyProperties(payDTO,pay);
         int i = payService.update(pay);
         return ResultData.success("成功修改记录，返回值是:"+i);
+    }
+    @GetMapping("/pay/info")
+    public ResultData<String> getInfo( @Value("${smile.name}") String name,@Value("${smile.message}") String message){
+        log.info("获取到的数据--->"+message);
+        return ResultData.success(name+"---"+message);
     }
 
 

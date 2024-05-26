@@ -2,6 +2,7 @@ package co.xiaoyuboy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @Author: Smile
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description:
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ConsumerApplication80 {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication80.class,args);

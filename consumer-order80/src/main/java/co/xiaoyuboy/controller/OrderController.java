@@ -17,7 +17,8 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 public class OrderController {
-    public static final String PaymentSrv_URL = "http://localhost:9001";//先写死，硬编码
+//    public static final String PaymentSrv_URL = "http://localhost:9001";//先写死，硬编码
+    public static final String PaymentSrv_URL = "http://provider-payment-9001";//微服务调用 consul
     @Resource
     private RestTemplate restTemplate;
     @GetMapping("/consumer/pay/get/{id}")
@@ -32,6 +33,7 @@ public class OrderController {
        // return  restTemplate.postForObject(PaymentSrv_URL + "/pay/add", ResultData.class,payDTO);
         return restTemplate.postForObject(PaymentSrv_URL + "/pay/add",payDTO,ResultData.class);
     }
+
 
 
 }
