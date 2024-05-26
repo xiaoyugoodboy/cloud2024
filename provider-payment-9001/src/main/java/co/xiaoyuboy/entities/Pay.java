@@ -1,5 +1,6 @@
 package co.xiaoyuboy.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.persistence.Column;
@@ -58,12 +59,14 @@ public class Pay {
      */
     @Column(name = "create_time")
     @Schema(title = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @Schema(title = "更新时间")
     private Date updateTime;
 

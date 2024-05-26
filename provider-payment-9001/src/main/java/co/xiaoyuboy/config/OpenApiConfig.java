@@ -25,7 +25,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("DreamApi")
+                                .title("微服务支付")
                                 .description("愿世俗多点温柔，愿你少点难过。")
                                 .contact(new Contact().name("Smile").email("smile_liuyu@qq.com").url("https://space.bilibili.com/435193261"))
                                 // 参考 Apache 2.0 许可及地址，你可以不配此项
