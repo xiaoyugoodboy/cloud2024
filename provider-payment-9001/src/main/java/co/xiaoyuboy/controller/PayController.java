@@ -2,12 +2,14 @@ package co.xiaoyuboy.controller;
 
 
 import co.xiaoyuboy.entities.Pay;
+import co.xiaoyuboy.entities.PayDTO;
 import co.xiaoyuboy.resp.ResultData;
 import co.xiaoyuboy.service.PayService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,6 +55,14 @@ public class PayController
     public ResultData<List<Pay>> getAllPay(){
 
         return ResultData.success(payService.getAll());
+    }
+    @PutMapping(value = "/pay/update")
+    @Operation(summary = "修改",description = "修改支付流水")
+    public ResultData<String> updatePay(@RequestBody PayDTO payDTO){
+        Pay pay = new Pay();
+        BeanUtils.copyProperties(payDTO,pay);
+        int i = payService.update(pay);
+        return ResultData.success("成功修改记录，返回值是:"+i);
     }
 
 
