@@ -13,6 +13,7 @@
         <module>provider-payment-9001</module>
         <module>consumer-order80</module>
         <module>api-commons</module>
+        <module>consumer-feign-order</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
