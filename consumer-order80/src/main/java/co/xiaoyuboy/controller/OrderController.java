@@ -5,6 +5,7 @@ import co.xiaoyuboy.entities.Pay;
 import co.xiaoyuboy.entities.PayDTO;
 import co.xiaoyuboy.resp.ResultData;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
 //    public static final String PaymentSrv_URL = "http://localhost:9001";//先写死，硬编码
-    public static final String PaymentSrv_URL = "http://provider-payment-9001";//微服务调用 consul
+    public static final String PaymentSrv_URL = "http://provider-payment";//微服务调用 consul
     @Resource
     private RestTemplate restTemplate;
     @GetMapping("/consumer/pay/get/{id}")
@@ -32,6 +33,12 @@ public class OrderController {
 
        // return  restTemplate.postForObject(PaymentSrv_URL + "/pay/add", ResultData.class,payDTO);
         return restTemplate.postForObject(PaymentSrv_URL + "/pay/add",payDTO,ResultData.class);
+    }
+    @GetMapping("/consumer/pay/info")
+    public ResultData<String> getInfo(){
+        ResultData forObject = restTemplate.getForObject(PaymentSrv_URL + "/pay/info", ResultData.class);
+        System.out.println(forObject);
+        return forObject;
     }
 
 
