@@ -63,10 +63,12 @@ public class PayController
         int i = payService.update(pay);
         return ResultData.success("成功修改记录，返回值是:"+i);
     }
+    @Value("${server.port}")
+    String port;
     @GetMapping("/pay/info")
     public ResultData<String> getInfo( @Value("${smile.name}") String name,@Value("${smile.message}") String message){
         log.info("获取到的数据--->"+message);
-        return ResultData.success(name+"---"+message);
+        return ResultData.success(name+"---"+message+"---端口："+port);
     }
 
 

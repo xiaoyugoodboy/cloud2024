@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!--loadbalancer 负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
         <!--        consul注册中心-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
